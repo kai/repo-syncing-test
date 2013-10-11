@@ -14,17 +14,6 @@ Fork this repository to try out these instructions without fear of breaking any 
 2. I have an internal Git server used for deployments
 3. I want to keep these synchronised using my normal workflow
 
-```text
-		+---------+         +----------+		/------>
-		| GitHub  | ======> | internal | -- deploy -->
-		+---------+         +----------+		\------>
-			 ^
-			 |
-			 |				+---------+
-			 L------------- |   ME!   |
-							+---------+
-```
-
 ### Getting Started
 
 Both methods I'll describe need a "bare" version of the GitHub repository on your internal server. This worked best for me:
@@ -42,6 +31,17 @@ More information and examples this can be found in the online Git Book:
 Once the internal server version of the repository is ready, we can begin!
 
 ### The Easy, Safe, But Manual Method:
+
+```text
+		+---------+          +----------+		/------>
+		| GitHub  |          | internal | -- deploy -->
+		+---------+          +----------+		\------>
+			 ^					   ^
+			 |					   |
+			 |	   +---------+     |
+			 \-----|   ME!   | ----/
+				   +---------+
+```
 
 This one I have used before, and is the least complex. It needs the least setup, but doesn't sync the two repositories automatically. Essentially we are going to add a second Git Remote to the local copy, and push to both servers in our workflow:
 
@@ -70,6 +70,17 @@ git push internal master
 * **Cons:** It's a little more typing when pushing changes
 
 ### The Automated Way:
+
+```text
+		+---------+         +----------+		/------>
+		| GitHub  | ======> | internal | -- deploy -->
+		+---------+         +----------+		\------>
+			 ^
+			 |
+			 |				+---------+
+			 L------------- |   ME!   |
+							+---------+
+```
 
 The previous method is simple and reliable, but it doesn't really scale that well. Wouldn't it be nice if the internal server did the extra work?
 
