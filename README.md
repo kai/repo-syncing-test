@@ -4,7 +4,7 @@ repo-syncing-test
 A simple repository for testing synchronising GitHub and an internal Git server
 
 ### What to do
-Fork this repository so you can try out these instructions without fear of breaking any of your other projects, until you are happy and comfortable it all works.
+Fork this repository to try out these instructions without fear of breaking any of your other projects, until you are happy and comfortable it all works.
 
 ---
 
@@ -27,7 +27,7 @@ Fork this repository so you can try out these instructions without fear of break
 
 ### Getting Started
 
-Both methods I'll describe need you to have a "bare" version of the GitHub repository onto your internal server. This worked best for me:
+Both methods I'll describe need a "bare" version of the GitHub repository on your internal server. This worked best for me:
 
 ```bash
 cd ~/projects/repo-sync-test/
@@ -39,7 +39,7 @@ More information and examples this can be found in the online Git Book:
 
 [4.2 Git on the Server - Getting Git on a Server](http://git-scm.com/book/en/Git-on-the-Server-Getting-Git-on-a-Server)
 
-Once your internal server version of the repository is ready, we can begin!
+Once the internal server version of the repository is ready, we can begin!
 
 ### The Easy, Safe, But Manual Method:
 
@@ -89,7 +89,7 @@ git fetch origin
 
 You might not have to do this, but I did, so best to mention it!
 
-At this point, you can test everything is working OK. Create or modify a file in your local copy, and push it to GitHub. On your internal server, do a `git fetch origin` to sync down to the server repository. Now, if you were to try and do a normal `git merge origin` at this point, it would fail, because we're in a "bare" repository. If we were to clone the server repository to another machine, it would reflect the previous commit.
+At this point, you can test everything is working OK. Create or modify a file in your local copy, and push it to GitHub. On your internal server, do a `git fetch origin` to sync the change down to the server repository. Now, if you were to try and do a normal `git merge origin` at this point, it would fail, because we're in a "bare" repository. If we were to clone the server repository to another machine, it would reflect the previous commit.
 
 Instead, to see our changes reflected, we can use `git reset` (I've included example output messages):
 
